@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מרכז אווקט - קהילה, חינוך וחברה</title>
+    <link rel="icon" type="image/png" href="images/לוגו עמותה.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: right;
+            overflow-x: hidden;
+        }
+
+        /* ניווט */
+        .navbar {
+            background: linear-gradient(90deg, #004085, #007bff);
+            padding: 10px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar .navbar-brand img {
+            height: 50px;
+        }
+        .navbar .navbar-nav .nav-link {
+            color: white !important;
+            font-size: 16px;
+            margin: 0 10px;
+            transition: transform 0.3s ease, color 0.3s;
+        }
+        .navbar .navbar-nav .nav-link:hover {
+            color: #ffd700;
+            transform: translateY(-3px);
+        }
+
+        /* באנר ראשי */
+        .header-banner {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeIn 1.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-banner h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .header-banner p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        .header-banner img {
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+        .header-banner img:hover {
+            transform: scale(1.05);
+        }
+
+        /* כרטיסי תוכן */
+        .container-boxes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 60px 10px;
+            background-color: #fff;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            margin: -50px auto 30px auto;
+            max-width: 1200px;
+            position: relative;
+            z-index: 10;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .box i {
+            font-size: 50px;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        .box h4 {
+            color: #004085;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .box p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* כפתורים */
+        .cta-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        .cta-btn:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        /* פוטר */
+        footer {
+            background: #002752;
+            color: white;
+            text-align: center;
+            padding: 40px 10px;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: white;
+        }
+
+        /* אנימציה */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* כפתור חזרה למעלה */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+        }
+        #back-to-top:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- ניווט עליון -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/לוגו עמותה.png" alt="לוגו העמותה"> מרכז אווקט
+            </a>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">אודות</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#learning">מרכז למידה</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#community">פעילות קהילתית</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#donate">תרומה</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">צור קשר</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- באנר ראשי -->
+    <header class="header-banner">
+        <h1>ברוכים הבאים למרכז אווקט</h1>
+        <p>מקום של קהילה, חינוך והעצמה אישית</p>
+        <img src="images/banner.png" alt="תמונת מרכז אווקט">
+    </header>
+
+    <!-- כרטיסי תוכן -->
+    <div class="container-boxes">
+        <div class="box" id="about">
+            <i class="fas fa-school"></i>
+            <h4>אודות המרכז</h4>
+            <p>מרכז אווקט פועל לקידום חינוך, קהילה ושוויון הזדמנויות לכל אחד ואחת.</p>
+            <a href="#" class="cta-btn">קרא עוד</a>
+        </div>
+        <div class="box" id="learning">
+            <i class="fas fa-book-open"></i>
+            <h4>מרכז למידה</h4>
+            <p>שיעורי תגבור במתמטיקה, אנגלית ועברית עם תמיכה אישית לכל תלמיד.</p>
+            <a href="#" class="cta-btn">פרטים נוספים</a>
+        </div>
+        <div class="box" id="community">
+            <i class="fas fa-users"></i>
+            <h4>פעילות קהילתית</h4>
+            <p>אירועים, סדנאות והפעלות מחברות, לחיזוק הקשר בין חברי הקהילה.</p>
+            <a href="#" class="cta-btn">הצטרפו אלינו</a>
+        </div>
+        <div class="box" id="donate">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h4>תרומה</h4>
+            <p>הצטרפו לתומכים שלנו ועזרו לנו להמשיך ולפעול למען הקהילה.</p>
+            <a href="#" class="cta-btn">תרום עכשיו</a>
+        </div>
+    </div>
+
+    <!-- פוטר -->
+    <footer>
+        <p>&copy; 2025 כל הזכויות שמורות למרכז אווקט</p>
+        <p>כתובת: יצחק יעקבי 6, רחובות | טלפון: <a href="tel:0587888164">058-788-8164</a></p>
+        <div>
+            <a href="https://www.facebook.com/profile.php?id=61573538452970" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:dammot@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+    <!-- כפתור חזרה למעלה -->
+    <button id="back-to-top" title="חזרה למעלה"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // הצגת כפתור חזרה למעלה
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            document.getElementById("back-to-top").style.display = scrollTop > 300 ? 'block' : 'none';
+        });
+        document.getElementById("back-to-top").addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
