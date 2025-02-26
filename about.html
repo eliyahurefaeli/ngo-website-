@@ -1,337 +1,239 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <link rel="icon" type="image/png" href="images/לוגו עמותה.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מרכז אווקט - קהילה, חינוך וחברה</title>
+    <title>אודות - מרכז אווקט</title>
+    <link rel="icon" href="images/לוגו עמותה.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { 
-            text-align: right; 
+        body {
             font-family: 'Assistant', sans-serif;
-            background-color: #f9f9f9;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
         .navbar {
-            background-color: #004085;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: linear-gradient(90deg, #004085, #007bff);
             padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        .navbar .navbar-brand img {
-            height: 50px;
+        .navbar-brand img {
+            height: 40px;
+            margin-left: 10px;
         }
-        .navbar .navbar-brand {
-            color: white;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        .navbar .navbar-nav {
-            display: flex;
-            flex-direction: row;
-            gap: 15px;
-        }
-        .navbar .navbar-nav .nav-link {
+        .navbar-nav .nav-link {
             color: white !important;
-            background-color: #007bff;
-            padding: 10px 15px;
-            border-radius: 10px;
-            font-size: 16px;
-            transition: background 0.3s, transform 0.3s;
+            transition: transform 0.3s;
         }
-        .navbar .navbar-nav .nav-link:hover {
-            background-color: #0056b3;
+        .navbar-nav .nav-link:hover {
             transform: scale(1.1);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        .header-banner {
-            text-align: center;
-            padding: 10px;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        .hero-section {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
             color: white;
-            background-attachment: fixed;
-            animation: fadeIn 1s ease-in-out;
-        }
-        .header-banner img {
-            max-width: 50%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease-in-out;
-        }
-        .header-banner img:hover {
-            transform: scale(1.05);
-        }
-        .progress-bar {
-            height: 5px;
-            background: #007bff;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0;
-            z-index: 1050;
-        }
-        .container-boxes {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px 0;
-        }
-        .box {
-            background: linear-gradient(135deg, #ffffff 0%, #f1f1f1 100%);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 40px 20px;
             text-align: center;
-            width: 300px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
             position: relative;
-            overflow: hidden;
-            animation: fadeInUp 0.5s ease-in-out;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 1000px;
+            animation: fadeIn 1.5s ease-in-out;
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
+        .hero-section h1 {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+        .content-section {
+            padding: 40px 20px;
+            background-color: white;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            margin: 40px auto;
+            max-width: 1200px;
+            animation: slideUp 1s ease-in-out;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .box:hover {
-            transform: scale(1.08);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        .box h4 {
+        .content-section h2 {
             color: #004085;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+            display: inline-block;
         }
-        .box i {
-            font-size: 40px;
-            color: #007bff;
-            margin-bottom: 10px;
-        }
-        .box img {
-            width: 100%;
-            height: auto;
-            margin-top: 10px;
-            max-height: 150px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .cta-btn {
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s;
-        }
-        .cta-btn:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
+        .highlight {
+            background-color: #d1ecf1;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #004085;
         }
         .footer {
             background: #002752;
             color: white;
-            padding: 30px 0;
+            padding: 20px 0;
             text-align: center;
-            font-size: 1.1em;
-            box-shadow: 0px -4px 10px rgba(0,0,0,0.2);
-        }
-        .footer p {
-            margin: 8px 0;
+            margin-top: 40px;
         }
         .footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s, transform 0.2s;
+            color: #ffd700;
+            transition: color 0.3s;
         }
         .footer a:hover {
-            color: #ffd700;
-            transform: scale(1.1);
+            color: white;
         }
-        .social-icons {
-            margin-top: 10px;
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
         }
         .social-icons a {
             color: white;
             font-size: 22px;
             margin: 0 10px;
-            transition: color 0.3s, transform 0.2s;
+            transition: transform 0.3s;
         }
         .social-icons a:hover {
-            color: #ffd700;
-            transform: scale(1.2);
+            transform: scale(1.3);
         }
-        #back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
+        .vision-section {
             background-color: #007bff;
             color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            display: none;
-            transition: opacity 0.3s;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
-        #back-to-top:hover {
-            background-color: #0056b3;
+        .vision-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .donate-btn-fixed {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 50px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            z-index: 1050;
-        }
-        .donate-btn-fixed:hover {
-            background-color: #218838;
-            transform: scale(1.05);
-        }
-        .highlight-number {
-            font-weight: bold;
-            color: #007bff;
-        }
-
-        /* Media query for mobile devices */
-        @media (max-width: 768px) {
-            .navbar .navbar-nav {
-                flex-direction: column;
-                gap: 10px;
-            }
+        .vision-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
         }
     </style>
 </head>
 <body>
-    <div class="progress-bar" id="progress-bar"></div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/לוגו עמותה.png" alt="לוגו העמותה">
-                מרכז אווקט
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="about.html">אודות</a></li>
-                    <li class="nav-item"><a class="nav-link" href="learning_center.html">מרכז למידה</a></li>
-                    <li class="nav-item"><a class="nav-link" href="community_activities.html">פעילות חברתית וקהילתית</a></li>
-                    <li class="nav-item"><a class="nav-link" href="donate.html">תרומה</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">צור קשר</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <header class="header-banner">
-        <h1>ברוכים הבאים למרכז אווקט רחובות</h1>
-        <p>מקום של קהילה, חינוך והעצמה אישית</p>
-        <img src="images/banner.png" alt="מרכז אווקט רחובות">
-    </header>
-
-    <div class="container text-center my-5">
-        <h2 class="mb-4">הפעילות שלנו</h2>
-        <div class="container-boxes">
-            <div class="box" aria-labelledby="about-heading">
-                <i class="fas fa-school" aria-hidden="true"></i>
-                <h4 id="about-heading">אודות</h4>
-                <p>מרכז אווקט הוא מקום מפגש חינוכי, חברתי ותרבותי, הפועל לקידום שוויון הזדמנויות והעצמה אישית בקרב הקהילה ברחובות.</p>
-                <button class="cta-btn">קרא עוד</button>
-                <img src="images/תמונה.png" alt="תמונה">
-            </div>
-            <div class="box" aria-labelledby="learning-center-heading">
-                <i class="fas fa-book-open" aria-hidden="true"></i>
-                <h4 id="learning-center-heading">מרכז למידה</h4>
-                <p>המרכז מציע תגבור במתמטיקה, אנגלית ועברית ליותר מ-<span class="highlight-number">70</span> תלמידים מדי שבוע, עם תמיכה פרטנית וקבוצתית לכל תלמיד.</p>
-                <button class="cta-btn">קרא עוד</button>
-                <img src="images/תמונה נוספת.png" alt="תמונה נוספת">
-            </div>
-            <div class="box" aria-labelledby="community-activities-heading">
-                <i class="fas fa-users" aria-hidden="true"></i>
-                <h4 id="community-activities-heading">פעילות חברתית וקהילתית</h4>
-                <p>מגוון פעילויות קהילתיות: הצגות, טיולים, סדנאות והפעלות לכל המשפחה, המחזקים את הקשר בין חברי הקהילה.</p>
-                <button class="cta-btn">קרא עוד</button>
-                <img src="images/תמונה1.jpeg" alt="תמונה1">
-            </div>
-            <div class="box" aria-labelledby="donation-heading">
-                <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
-                <h4 id="donation-heading">תרומה</h4>
-                <p>הצטרפו אלינו בשיפור חיי הקהילה. תרומתכם מסייעת לנו לתמוך בלמעלה מ-<span class="highlight-number">70</span> תלמידים ולהרחיב את הפעילויות שלנו.</p>
-                <button class="cta-btn">תרום עכשיו</button>
-                <img src="images/תמונה2.jpeg" alt="תמונה2">
-            </div>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/לוגו עמותה.png" alt="לוגו העמותה">
+            מרכז אווקט
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">דף הבית</a></li>
+                <li class="nav-item"><a class="nav-link active" href="about.html">אודות</a></li>
+                <li class="nav-item"><a class="nav-link" href="schedule.html">מערכת שעות</a></li>
+                <li class="nav-item"><a class="nav-link" href="learning_center.html">מרכז למידה</a></li>
+                <li class="nav-item"><a class="nav-link" href="community_activities.html">פעילות קהילתית</a></li>
+                <li class="nav-item"><a class="nav-link" href="donate.html">תרומה</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">צור קשר</a></li>
+            </ul>
         </div>
     </div>
+</nav>
 
-    <footer class="footer">
-        <div class="container">
-            <p><strong>מרכז אווקט</strong></p>
-            <p>כתובת: יצחק יעקבי 6, רחובות (מעו"ס בית"ר)</p>
-            <p>טלפון: <a href="https://wa.me/972587888164" target="_blank" style="color: white; text-decoration: none;">058-788-8164 <i class="fab fa-whatsapp"></i></a></p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61573538452970" target="_blank">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="mailto:dammot@gmail.com" target="_blank">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <p>© 2025 כל הזכויות שמורות למרכז אווקט</p>
+<div class="hero-section">
+    <h1>אודות מרכז אווקט</h1>
+    <p>מרכז לקהילה, חינוך ותרבות בלב רחובות - המקום בו כל אחד מוצא את מקומו לצמיחה והתפתחות אישית וחברתית.</p>
+</div>
+
+<div class="container">
+    <div class="vision-section">
+        <h2>החזון שלנו</h2>
+        <p>
+            מרכז 'אווקט' שואף להיות מוקד קהילתי מוביל, המשלב חינוך, תרבות ומנהיגות תוך שמירה על ערכי המסורת והחדשנות. המרכז פועל להעצמת ילדים, בני נוער והורים, באמצעות תוכניות חינוכיות וקהילתיות מתקדמות, המעניקות כלים להצלחה אישית, לימודית וחברתית.
+        </p>
+        <p>
+            אנו מאמינים בכוחה של הקהילה וביכולת של כל אדם לתרום ולהשפיע, וליצור עתיד טוב יותר. יחד, אנו בונים גשרים בין דורות, תרבויות וחלומות.
+        </p>
+    </div>
+
+    <div class="content-section">
+        <h2>המטרות שלנו</h2>
+        <div class="card p-4 mb-4">
+            <ul>
+                <li>קידום שוויון הזדמנויות בחינוך עבור ילדים ובני נוער.</li>
+                <li>חיזוק תחושת השייכות והמעורבות הקהילתית.</li>
+                <li>הענקת כלים להורים לשיפור יכולות ההורות והמנהיגות המשפחתית.</li>
+                <li>שימור מורשת יהדות אתיופיה והעברתה לדורות הבאים.</li>
+                <li>יצירת פעילויות תרבותיות, חינוכיות וחברתיות המותאמות לכל גיל.</li>
+            </ul>
         </div>
-    </footer>
 
-    <button id="back-to-top" title="חזרה למעלה"><i class="fas fa-arrow-up"></i></button>
-    <button class="donate-btn-fixed" onclick="window.location.href='donate.html'">תרומה</button>
+        <h2>תוכניות עיקריות</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <h4><i class="fas fa-book-open"></i> מרכז למידה</h4>
+                    <p>תגבור לימודי במקצועות הליבה – עברית, אנגלית וחשבון, בקבוצות קטנות ובהתאם לרמת התלמידים, כולל סיוע פרטני.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <h4><i class="fas fa-users"></i> העצמה הורית</h4>
+                    <p>סדנאות להורים לחיזוק המעורבות בתהליך החינוכי והקניית כלים להתמודדות עם אתגרי ההורות.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <h4><i class="fas fa-hiking"></i> פעילויות קהילתיות</h4>
+                    <p>טיולים, הצגות, סדנאות קיץ ושיתופי פעולה עם מוסדות מובילים, כולל פעילות בין-דורית.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-3">
+                    <h4><i class="fas fa-handshake"></i> מנהיגות קהילתית</h4>
+                    <p>גיבוש קבוצות מנהיגות הורים וקהילה, תוך מתן כלים למעורבות והשפעה.</p>
+                </div>
+            </div>
+        </div>
 
-    <script>
-        // סרגל התקדמות
-        window.addEventListener("scroll", () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            document.getElementById("progress-bar").style.width = scrollPercent + "%";
-        });
+        <h2>הקהילה שלנו</h2>
+        <div class="highlight p-4">
+            <p>במרכז 'אווקט' אנו מאמינים בכוחה של הקהילה. אנו פועלים בשיתוף פעולה עם הורים, ילדים, מתנדבים וגורמים עירוניים, במטרה ליצור סביבה תומכת, חינוכית ומעצימה לכל אחד ואחת. יחד אנו צומחים, לומדים ומעצבים את העתיד שלנו.</p>
+        </div>
 
-        // כפתור חזרה למעלה
-        const backToTop = document.getElementById("back-to-top");
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                backToTop.style.display = "block";
-            } else {
-                backToTop.style.display = "none";
-            }
-        });
-        backToTop.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <h2>דבר היו"ר – אסרס טלהון</h2>
+        <div class="highlight p-4 mb-4">
+            <p>"מרכז 'אווקט' אינו רק מקום – הוא בית שני לכל מי שמבקש הזדמנות לצמיחה אישית, חינוכית וקהילתית. יחד, אנו יוצרים מציאות טובה יותר, המושתתת על ערכים של שוויון, כבוד והעצמה הדדית."</p>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="contact.html" class="btn btn-primary">צור קשר והצטרף לעשייה</a>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 מרכז אווקט. כל הזכויות שמורות.</p>
+    <p>יצחק יעקבי 6, רחובות | <a href="mailto:mewuket11@gmail.com">mewuket11@gmail.com</a> | <a href="tel:089451293">08-9451293</a></p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61573538452970" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/972587888164" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:mewuket11@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>
